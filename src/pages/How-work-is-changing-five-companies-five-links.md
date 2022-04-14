@@ -9,7 +9,6 @@ author: "Thomas Ridings"
 authorImageSrc: "images/ThomasRidingsAuthor.jpg"
 date: "11 August 2016"
 dateNum: 20160811
-tag1: "Digital"
 url: "./How-work-is-changing-five-companies-five-links"
 ---
 
