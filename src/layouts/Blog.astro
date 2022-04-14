@@ -1,0 +1,98 @@
+---
+// Component Imports
+//import Menu from '../components/Menu.svelte';
+//import Footer from '../components/Footer.svelte';
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+import Header from '../components/Header.astro';
+import { Markdown } from 'astro/components';
+import { SEO } from "astro-seo";
+
+const { content } = Astro.props;
+
+
+let open = false
+---
+
+<style>
+    :global(body) {
+        padding: 0;
+    }
+</style>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{content.title + " - Thomas Ridings"}</title>
+
+    <!-- seo stuff -->
+    <!-- We should look at this instead: https://www.npmjs.com/package/astro-seo -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Title" />
+    <meta property="og:url" content="https://thomasridings.com/" />
+    <meta property="og:site_name" content="Thomas Ridings" />
+    <meta property="article:publisher" content="https://thomasridings.com" />
+    <meta property="article:modified_time" content="2019-10-07T19:24:17+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ThomasRidings" />
+
+    <meta property="og:title" content="Home" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://thomasridings.com" />
+    <meta property="og:site_name" content="Thomas Ridings" />
+    <meta property="og:description" content="Experienced Product leader specialising in modern data analytics. Blogging about product management approaches, management and all things data." />
+    <meta property="og:image" content="/images/ThomasRidings.png" />
+
+    <meta name="description" content="Experienced Product leader specialising in modern data analytics. Blogging about product management approaches, management and all things data."> -->
+
+    <SEO
+      title={content.title + " | Thomas Ridings"}
+      content.subtitle="Experienced Product leader specialising in modern data analytics. Blogging about product management approaches, management and all things data." 
+    />
+
+</head>
+<body class="h-screen bg-gray-900">
+  <Header />
+  <div id="main" class="text-white p-16">
+  <div class="container max-w-5xl mx-auto -mt-16">
+
+    <!--Title-->
+    <div class="text-center pt-16 md:pt-32">
+        <p class="text-sm md:text-base font-bold uppercase bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">{content.date} - {content.tag1}</p>
+        <h1 class="font-bold break-normal text-3xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">{content.title}</h1>
+    </div>
+
+    <!--image-->
+    <div class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded" style={"background-image:url('" + content.imageSrc + "'); height: 75vh;"}>
+    </div>
+        
+    <!--Container-->
+    <div class="container max-w-5xl mx-auto -mt-32">
+            
+      <div class="mx-0 sm:mx-6">
+          
+          <div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+        
+
+              <!--Lead Para-->
+              <p class="text-2xl md:text-3xl mb-5 prose-xl">
+                  <Markdown content={content.subtitle}/>
+              </p>
+
+              <div class="py-6 prose">
+                <slot />
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+  </div>
+</body>
+</html>

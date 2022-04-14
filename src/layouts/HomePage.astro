@@ -1,0 +1,65 @@
+---
+// Component Imports
+//import Menu from '../components/Menu.svelte';
+//import Footer from '../components/Footer.svelte';
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+import Header from '../components/Header.astro';
+import { SEO } from "astro-seo";
+
+const {title = "Home", bg = 'bg-gray-300' } = Astro.props;
+
+
+let open = false
+---
+
+<style>
+	:global(body) {
+		padding: 0;
+	}
+</style>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{title + " - Thomas Ridings"}</title>
+
+    <!-- seo stuff -->
+    <!-- We should look at this instead: https://www.npmjs.com/package/astro-seo -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- <meta property="og:locale" content="en_GB" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Title" />
+    <meta property="og:url" content="https://thomasridings.com/" />
+    <meta property="og:site_name" content="Thomas Ridings" />
+    <meta property="article:publisher" content="https://thomasridings.com" />
+    <meta property="article:modified_time" content="2019-10-07T19:24:17+00:00" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ThomasRidings" />
+
+    <meta property="og:title" content="Home" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://thomasridings.com" />
+    <meta property="og:site_name" content="Thomas Ridings" />
+    <meta property="og:description" content="Experienced Product leader specialising in modern data analytics. Blogging about product management approaches, management and all things data." />
+    <meta property="og:image" content="/images/ThomasRidings.png" />
+
+    <meta name="description" content="Experienced Product leader specialising in modern data analytics. Blogging about product management approaches, management and all things data."> -->
+
+    <SEO
+      title={title + " | Thomas Ridings"}
+      description="Experienced Product leader specialising in modern data analytics. Blogging about product management approaches, management and all things data." 
+    />
+
+</head>
+<body class="h-screen bg-gray-900">
+  <Header />
+  <div id="main">
+    <slot />
+  </div>
+</body>
+</html>

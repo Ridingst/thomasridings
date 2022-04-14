@@ -1,0 +1,24 @@
+---
+import PostItem from './PostItem.astro'
+let allPosts = await Astro.glob('../pages/*.md')
+let sortedPosts = allPosts.sort((a, b) => (a.frontmatter.dateNum > b.frontmatter.dateNum) ? -1 : 1);
+//{allPosts.map((post) => (
+//  <PostItem title={post.frontMatter.title} />
+//))}
+---
+
+
+{sortedPosts.map((post) => (
+  <PostItem
+    title={post.frontmatter.title}
+    subtitle={post.frontmatter.subtitle}
+    imageSrc={post.frontmatter.imageSrc}
+    author={post.frontmatter.author}
+    authorImageSrc={post.frontmatter.authorImageSrc}
+    date={post.frontmatter.date}
+    tag1={post.frontmatter.tag1}
+    url={post.frontmatter.url}
+  />
+))}
+
+
