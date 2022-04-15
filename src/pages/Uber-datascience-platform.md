@@ -9,7 +9,7 @@ author: "Thomas Ridings"
 authorImageSrc: "images/ThomasRidingsAuthor.jpg"
 date: "10 December 2019"
 dateNum: 20191210
-tag1: "Digital"
+tag1: "Machine Learning"
 url: "./Uber-datascience-platform"
 ---
 

@@ -9,7 +9,7 @@ author: "Thomas Ridings"
 authorImageSrc: "images/ThomasRidingsAuthor.jpg"
 date: "17 December 2019"
 dateNum: 20191217
-tag1: "Machine-Learning"
+tag1: "Machine Learning"
 url: "./Metaflow-netflix"
 ---
 
