@@ -1,14 +1,20 @@
 ---
 import PostItem from './PostItem.astro'
+
+const {tag} = Astro.props;
+
 let allPosts = await Astro.glob('../pages/*.md')
 let sortedPosts = allPosts.sort((a, b) => (a.frontmatter.dateNum > b.frontmatter.dateNum) ? -1 : 1);
+let filteredPosts = sortedPosts.filter(a => a.frontmatter.tag1 == tag || a.frontmatter.tag2 == tag);
+
+
 //{allPosts.map((post) => (
 //  <PostItem title={post.frontMatter.title} />
 //))}
 ---
 
 
-{sortedPosts.map((post) => (
+{filteredPosts.map((post) => (
   <PostItem
     title={post.frontmatter.title}
     subtitle={post.frontmatter.subtitle}
